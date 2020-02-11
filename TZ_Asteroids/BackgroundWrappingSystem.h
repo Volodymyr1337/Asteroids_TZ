@@ -11,7 +11,7 @@ private:
 	std::shared_ptr<Group> _group;
 	vec2f _maxBounds;
 	vec2f _minBounds;
-	vec2f _backgroundQt;
+	vec2f _backgroundTilesQt;
 	vec2f _bgSize;
 
 

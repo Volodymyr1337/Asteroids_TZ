@@ -18,10 +18,10 @@ void BackgroundWrappingSystem::Initialize()
 	int screenX = 0;
 	int screenY = 0;
 	getScreenSize(screenX, screenY);
-	_backgroundQt = vec2f(screenX / spriteSize.x + 4, screenY / spriteSize.y + 4);
-	_bgSize = vec2f(_backgroundQt.x * spriteSize.x, _backgroundQt.y * spriteSize.y);
-	_maxBounds = vec2f((_backgroundQt.x - 1) * spriteSize.x, (_backgroundQt.y - 1) * spriteSize.y);
-	_minBounds = vec2f(-spriteSize.x*2, -spriteSize.y*2);
+	_backgroundTilesQt = vec2f(screenX / spriteSize.x + 4, screenY / spriteSize.y + 4);
+	_bgSize = vec2f(_backgroundTilesQt.x * spriteSize.x, _backgroundTilesQt.y * spriteSize.y);
+	_maxBounds = vec2f((_backgroundTilesQt.x - 2) * spriteSize.x, (_backgroundTilesQt.y - 2) * spriteSize.y);
+	_minBounds = vec2f(-2 * spriteSize.x, -2 * spriteSize.y);
 }
 
 void BackgroundWrappingSystem::Execute()

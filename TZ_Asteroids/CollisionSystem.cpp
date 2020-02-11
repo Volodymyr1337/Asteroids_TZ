@@ -112,7 +112,7 @@ void CollisionSystem::Execute()
 								if (bonusChance <= GameConfig::Instance().abilityProbability)
 								{
 									auto entity = _pool->CreateEntity();
-									entity->Add<ResourceComponent>("Resources/reticle.png");
+									entity->Add<ResourceComponent>("Resources/missile.png");
 									Sprite* sprite = createSprite(entity->Get<ResourceComponent>()->path);
 									int sprtWidth;
 									int sprtHeight;
