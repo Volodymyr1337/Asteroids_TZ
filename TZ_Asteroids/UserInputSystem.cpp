@@ -23,6 +23,7 @@ void UserInputSystem::SetPool(Pool * pool)
 
 void UserInputSystem::Initialize()
 {
+	showCursor(false);
 	Dispatcher::Instance().onMouseButtonClick = nullptr;
 	Dispatcher::Instance().onMouseButtonClick += [&](FRMouseButton&& button, bool&& isReleased) {
 		

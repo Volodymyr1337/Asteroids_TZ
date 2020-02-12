@@ -42,8 +42,8 @@ public:
 
 private:
 	GameConfig() {
-		windowWidth = 1280;
-		windowHeight = 720;
+		windowWidth = 800;
+		windowHeight = 600;
 		mapWidth = 1000;
 		mapHeight = 1000;
 		numAmmo = 3;
