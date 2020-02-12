@@ -27,3 +27,8 @@ void HomingMissileSystem::Execute()
 		}
 	}
 }
+
+HomingMissileSystem::~HomingMissileSystem()
+{
+	delete _pool;
+}

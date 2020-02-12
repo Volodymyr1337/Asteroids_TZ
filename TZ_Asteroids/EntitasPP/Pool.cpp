@@ -6,6 +6,7 @@
 #include "Entity.hpp"
 #include "ISystem.hpp"
 #include "ReactiveSystem.hpp"
+#include "ViewComponent.h"
 #include <algorithm>
 
 namespace EntitasPP
@@ -97,6 +98,11 @@ bool Pool::HasEntity(const EntityPtr& entity) const
 
 void Pool::DestroyEntity(EntityPtr entity)
 {
+	if (entity->Has<ViewComponent>())
+	{
+		Sprite* sprite = entity->Get<ViewComponent>()->sprite;
+		destroySprite(sprite);
+	}
 	auto removed = mEntities.erase(entity);
 
 	if (! removed)

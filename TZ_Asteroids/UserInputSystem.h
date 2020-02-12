@@ -16,5 +16,6 @@ public:
 	void SetPool(Pool* pool) override;
 	void Initialize() override;
 	void Execute() override;
+	~UserInputSystem() override;
 };
 

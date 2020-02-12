@@ -14,5 +14,6 @@ public:
 	void SetPool(Pool* pool) override;
 	void Execute() override;
 	bool OnCollisionEnter(EntityPtr &entityA, EntityPtr &entityB);
+	~CollisionSystem() override;
 };
 

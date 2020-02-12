@@ -48,3 +48,8 @@ void InitializeBackgroundSystem::Initialize()
 		}
 	}
 }
+
+InitializeBackgroundSystem::~InitializeBackgroundSystem()
+{
+	delete _pool;
+}

@@ -10,6 +10,11 @@
 #include "Dispatcher.h"
 #include <iostream>
 
+InitializeAsteroidsSystem::~InitializeAsteroidsSystem()
+{
+	delete _pool;
+}
+
 void InitializeAsteroidsSystem::SetPool(Pool* pool)
 {
 	_pool = pool;
@@ -42,6 +47,7 @@ void InitializeAsteroidsSystem::Initialize()
 		}		
 	};
 }
+
 
 void InitializeAsteroidsSystem::SpawnAsteroid(vec2f spaceShipPos)
 {

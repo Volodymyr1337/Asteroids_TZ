@@ -194,3 +194,8 @@ bool CollisionSystem::OnCollisionEnter(EntityPtr &entityA, EntityPtr &entityB)
 
 	return xCompare + yCompare < (aXr + bXr) * (aYr + bYr);
 }
+
+CollisionSystem::~CollisionSystem()
+{
+	delete _pool;
+}

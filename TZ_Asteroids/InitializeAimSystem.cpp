@@ -16,3 +16,8 @@ void InitializeAimSystem::Initialize()
 	entity->Add<PositionComponent>(vec2f(0, 0));
 	entity->Add<AimComponent>();
 }
+
+InitializeAimSystem::~InitializeAimSystem()
+{
+	delete _pool;
+}

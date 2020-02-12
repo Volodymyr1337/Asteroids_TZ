@@ -2,6 +2,7 @@
 #include "DestroyComponent.h"
 #include "ProjectileComponent.h"
 #include "AsteroidComponent.h"
+#include "ViewComponent.h"
 #include "Dispatcher.h"
 
 
@@ -23,4 +24,9 @@ void DestroySystem::Execute()
 			Dispatcher::Instance().onAsteroidDestroyed(_pool->GetGroup(Matcher_AllOf(AsteroidComponent))->Count());
 		}
 	}
+}
+
+DestroySystem::~DestroySystem()
+{
+	delete _pool;
 }

@@ -11,4 +11,5 @@ private:
 public:
 	void SetPool(Pool* pool) override;
 	void Initialize() override;
+	~InitializeBackgroundSystem() override;
 };

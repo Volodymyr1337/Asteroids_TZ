@@ -194,3 +194,8 @@ void UserInputSystem::Execute()
 		}
 	}
 }
+
+UserInputSystem::~UserInputSystem()
+{
+	delete _pool;
+}

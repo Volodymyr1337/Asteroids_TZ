@@ -11,6 +11,6 @@ private:
 public:
 	void SetPool(Pool* pool) override;
 	void Initialize() override;
-
+	~InitializeAimSystem() override;
 };
 

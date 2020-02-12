@@ -13,5 +13,6 @@ public:
 
 	void SetPool(Pool* pool) override;
 	void Execute() override;
+	~HomingMissileSystem() override;
 };
 
