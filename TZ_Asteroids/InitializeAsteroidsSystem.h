@@ -1,5 +1,6 @@
 #pragma once
 #include "EntitasPP/ISystem.hpp"
+#include "vec2.h"
 
 using namespace EntitasPP;
 
@@ -12,6 +13,8 @@ private:
 
 	int _screenX;
 	int _screenY;
+
+	void SpawnAsteroid(vec2f shipPos);
 
 public:
 	void SetPool(Pool* pool) override;
