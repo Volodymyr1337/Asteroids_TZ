@@ -8,6 +8,7 @@
 #include "GameConfig.h"
 #include "vec2.h"
 #include "AsteroidFactory.h"
+#include "Dispatcher.h"
 #include <iostream>
 
 void InitializeAsteroidsSystem::SetPool(Pool* pool)
@@ -18,6 +19,7 @@ void InitializeAsteroidsSystem::SetPool(Pool* pool)
 
 void InitializeAsteroidsSystem::Initialize()
 {
+
 	vec2f spaceShipPos;
 	for (auto &spaceShip : _pool->GetEntities())
 	{
@@ -42,4 +44,22 @@ void InitializeAsteroidsSystem::Initialize()
 		}
 		AsteroidFactory::create(_pool, position, 2, "Resources/big_asteroid.png");
 	}
+
+	Dispatcher::Instance().onAsteroidDestroyed = nullptr;
+	Dispatcher::Instance().onAsteroidDestroyed += [&](int numAsteroids) {
+		if (GameConfig::Instance().numAsteroids > numAsteroids)
+		{
+			float x = _screenX * ((float)rand() / RAND_MAX);
+			float y = _screenY * ((float)rand() / RAND_MAX);
+			vec2f position(x, y);
+			float distance = position.dist(spaceShipPos);
+
+			if (distance < 100)
+			{
+				vec2f newPos = (position - spaceShipPos).normalize() * 100;
+				position += newPos;
+			}
+			AsteroidFactory::create(_pool, position, 2, "Resources/big_asteroid.png");
+		}		
+	};
 }

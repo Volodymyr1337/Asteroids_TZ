@@ -44,6 +44,7 @@ public:
 		return _instance;
 	}
 	event<FRMouseButton, bool> onMouseButtonClick = event<FRMouseButton, bool>();
+	event<int> onAsteroidDestroyed = event<int>();
 	event<FRKey> onKeyPressed = event<FRKey>();
 	event<FRKey> onKeyReleased = event<FRKey>();
 	event<vec2f> onMouseMove = event<vec2f>();

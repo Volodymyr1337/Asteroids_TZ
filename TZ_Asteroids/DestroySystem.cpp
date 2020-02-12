@@ -1,8 +1,8 @@
 #include "DestroySystem.h"
 #include "DestroyComponent.h"
 #include "ProjectileComponent.h"
+#include "AsteroidComponent.h"
 #include "Dispatcher.h"
-
 
 
 void DestroySystem::SetPool(Pool * pool)
@@ -16,6 +16,11 @@ void DestroySystem::Execute()
 	int size = entities.size();
 	for (unsigned int i = 0; i < size; i++)
 	{
+		bool isAsteroid = entities[i]->Has<AsteroidComponent>();
 		_pool->DestroyEntity(entities[i]);
+		if (isAsteroid)
+		{
+			Dispatcher::Instance().onAsteroidDestroyed(_pool->GetGroup(Matcher_AllOf(AsteroidComponent))->Count());
+		}
 	}
 }
